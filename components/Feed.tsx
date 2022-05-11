@@ -1,26 +1,26 @@
-import { RefreshIcon } from '@heroicons/react/outline'
-import React, { useState } from 'react'
-import { Tweet } from '../typing'
-import TweetBox from './TweetBox'
-import TweetComponent from './Tweet'
-import { fetchTweets } from '../utils/fetchTweets'
-import toast from 'react-hot-toast'
+import { RefreshIcon } from '@heroicons/react/outline';
+import React, { useState } from 'react';
+import { Tweet } from '../typing';
+import TweetBox from './TweetBox';
+import TweetComponent from './Tweet';
+import { fetchTweets } from '../utils/fetchTweets';
+import toast from 'react-hot-toast';
 interface Props {
-  tweets: Tweet[]
+  tweets: Tweet[];
 }
 
 function Feed({ tweets: tweetsProp }: Props) {
-  const [tweets, setTweets] = useState<Tweet[]>(tweetsProp)
+  const [tweets, setTweets] = useState<Tweet[]>(tweetsProp);
   const handleRefresh = async () => {
-    const refreshToast = toast.loading('Refreshing...')
-    const tweets = await fetchTweets()
-    setTweets(tweets)
+    const refreshToast = toast.loading('Refreshing...');
+    const tweets = await fetchTweets();
+    setTweets(tweets);
     toast.success('Feed Updated!', {
       id: refreshToast,
-    })
-  }
+    });
+  };
   return (
-    <div className="col-span-7 border lg:col-span-5">
+    <div className="col-span-7 max-h-screen overflow-scroll border-x scrollbar-hide lg:col-span-5">
       <div className=" flex items-center justify-between">
         <div className="p-5 pb-0 text-xl font-bold">Home</div>
         <RefreshIcon
@@ -29,7 +29,7 @@ function Feed({ tweets: tweetsProp }: Props) {
         />
       </div>
       <div>
-        <TweetBox />
+        <TweetBox setTweets={setTweets} />
       </div>
       <div>
         {tweets.map((tweet) => (
@@ -37,7 +37,7 @@ function Feed({ tweets: tweetsProp }: Props) {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Feed
+export default Feed;
