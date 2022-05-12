@@ -83,19 +83,19 @@ function Tweet({ tweet }: Props) {
       </div>
       <div className="mt-5 flex justify-between">
         <div
-          className="items-cente flex cursor-pointer space-x-3 text-gray-400"
+          className="flex cursor-pointer items-center space-x-3 text-gray-400"
           onClick={() => session && setCommentBoxVisible(!commentBoxVisible)}
         >
           <ChatAlt2Icon className="h-5 w-5" />
           <p>{comments.length}</p>
         </div>
-        <div className="items-cente flex cursor-pointer space-x-3 text-gray-400">
+        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
           <SwitchHorizontalIcon className="h-5 w-5" />
         </div>
-        <div className="items-cente flex cursor-pointer space-x-3 text-gray-400">
+        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
           <HeartIcon className="h-5 w-5" />
         </div>
-        <div className="items-cente flex cursor-pointer space-x-3 text-gray-400">
+        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
           <UploadIcon className="h-5 w-5" />
         </div>
       </div>
