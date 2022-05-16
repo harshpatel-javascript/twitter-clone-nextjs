@@ -11,7 +11,6 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const comment: CommentBody = JSON.parse(req.body);
-  console.log(comment.tweetId);
   const mutations = {
     mutations: [
       {
